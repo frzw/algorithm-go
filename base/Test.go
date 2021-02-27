@@ -3,7 +3,7 @@ package base
 /* 冒泡排序 */
 
 // ASC:升序
-func BubbleSortAscBS(arr []int) []int {
+func BubbleSortAscLIzhi(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr); j++ {
 			if j+1 < len(arr) && arr[j] > arr[j+1] {
@@ -17,7 +17,7 @@ func BubbleSortAscBS(arr []int) []int {
 }
 
 // DESC:降序
-func BubbleSortDescBS(arr []int) []int {
+func BubbleSortAscLIzhis(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr); j++ {
 			if j+1 < len(arr) && arr[j] < arr[j+1] {
