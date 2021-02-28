@@ -1,4 +1,4 @@
-package base
+package sort
 
 func HeapSort(arr []int) []int {
 	arrLen := len(arr)
@@ -34,8 +34,4 @@ func heapify(arr []int, i, arrLen int) {
 		swap(arr, i, largest)
 		heapify(arr, largest, arrLen)
 	}
-}
-
-func swap(arr []int, i, j int) {
-	arr[i], arr[j] = arr[j], arr[i]
 }

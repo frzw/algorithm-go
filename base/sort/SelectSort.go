@@ -1,4 +1,4 @@
-package base
+package sort
 
 /* 选择排序 */
 
@@ -11,7 +11,7 @@ func SelectSortAsc(arr []int) []int {
 				min = j
 			}
 		}
-		arr[min], arr[i] = arr[i], arr[min]
+		swap(arr, min, i)
 	}
 	return arr
 }
@@ -25,7 +25,7 @@ func SelectSortDesc(arr []int) []int {
 				max = j
 			}
 		}
-		arr[max], arr[i] = arr[i], arr[max]
+		swap(arr, max, i)
 	}
 	return arr
 }

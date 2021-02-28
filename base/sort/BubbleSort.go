@@ -1,4 +1,4 @@
-package base
+package sort
 
 /* 冒泡排序 */
 
@@ -7,7 +7,7 @@ func BubbleSortAsc(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr); j++ {
 			if j+1 < len(arr) && arr[j] > arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+				swap(arr, j, j+1)
 			}
 		}
 	}
@@ -19,7 +19,7 @@ func BubbleSortDesc(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr); j++ {
 			if j+1 < len(arr) && arr[j] < arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+				swap(arr, j, j+1)
 			}
 		}
 	}

@@ -1,25 +1,36 @@
-package base
+package sort
 
 /* 快速排序 */
-func QuickSort(arr []int) []int {
-	return _quickSort(arr, 0, len(arr)-1)
+
+// Asc：升序
+func QuickSortAsc(arr []int) []int {
+	return _quickSort(arr, 0, len(arr)-1, true)
 }
 
-func _quickSort(arr []int, left, right int) []int {
+// Desc：降序
+func QuickSortDesc(arr []int) []int {
+	return _quickSort(arr, 0, len(arr)-1, false)
+}
+
+func _quickSort(arr []int, left, right int, sortBool bool) []int {
 	if left < right {
-		partitionIndex := partition(arr, left, right)
-		_quickSort(arr, left, partitionIndex-1)
-		_quickSort(arr, partitionIndex+1, right)
+		partitionIndex := partition(arr, left, right, sortBool)
+		_quickSort(arr, left, partitionIndex-1, sortBool)
+		_quickSort(arr, partitionIndex+1, right, sortBool)
 	}
 	return arr
 }
 
-func partition(arr []int, left, right int) int {
+func partition(arr []int, left, right int, sortBool bool) int {
 	piovt := left
 	index := piovt + 1
 
 	for i := index; i <= right; i++ {
-		if arr[i] < arr[piovt] {
+		if sortBool && arr[i] < arr[piovt] {
+			swap(arr, i, index)
+			index++
+		}
+		if !sortBool && arr[i] > arr[piovt] {
 			swap(arr, i, index)
 			index++
 		}

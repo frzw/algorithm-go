@@ -1,9 +1,9 @@
-package base
+package sort
 
 /* 插入排序*/
 
 // Asc:降序
-func Asc(arr []int) []int {
+func InsertSortAsc(arr []int) []int {
 	for i := 1; i < len(arr); i++ {
 		temp := arr[i]
 		j := i
