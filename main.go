@@ -8,6 +8,6 @@ import (
 
 func main() {
 	arr := []int{4, 32, 34, 2, 1, 3, 55, 88, 33, 12}
-	res := base.BubbleSortDesc(arr)
+	res := base.InsertSortDesc(arr)
 	fmt.Println(res)
 }

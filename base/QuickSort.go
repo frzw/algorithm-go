@@ -1,5 +1,6 @@
 package base
 
+/* 快速排序 */
 func QuickSort(arr []int) []int {
 	return _quickSort(arr, 0, len(arr)-1)
 }
