@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	base "github.com/frzw/algorithm-go/base"
+	base "github.com/frzw/algorithm-go/base/sort"
 )
 
 func main() {
