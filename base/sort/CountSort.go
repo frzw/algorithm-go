@@ -4,10 +4,7 @@ package sort
 
 // Asc：升序
 func CountSortAsc(arr []int) []int {
-	maxValue := getMaxValue(arr)
-	minValue := getMinValue(arr)
-	countArr := make([]int, maxValue-minValue+1)
-	arrIndex := 0
+	countArr, arrIndex := getCountArr(arr)
 	for _, v := range arr {
 		countArr[v] += 1
 	}
@@ -24,9 +21,7 @@ func CountSortAsc(arr []int) []int {
 
 // Desc：降序
 func CountSortDesc(arr []int) []int {
-	maxValue := getMaxValue(arr)
-	countArr := make([]int, maxValue+1)
-	arrIndex := 0
+	countArr, arrIndex := getCountArr(arr)
 	for _, v := range arr {
 		countArr[v] += 1
 	}
@@ -59,4 +54,12 @@ func getMinValue(arr []int) int {
 		}
 	}
 	return minValue
+}
+
+func getCountArr(arr []int) ([]int, int) {
+	countIndex := 0
+	maxValue := getMaxValue(arr)
+	minValue := getMinValue(arr)
+	countArr := make([]int, maxValue-minValue+1)
+	return countArr, countIndex
 }
