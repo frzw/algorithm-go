@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	arr := []int{4, 2}
-	res := base.ShellSortAsc(arr)
+	arr := []int{4, 32, 34, 2, 1, 3, 55, 88, 33, 12}
+	res := base.MergeSortDesc(arr)
 	fmt.Println(res)
 }
