@@ -1,37 +1,65 @@
 package sort
 
-func HeapSort(arr []int) []int {
-	arrLen := len(arr)
-	// 构建大顶堆
-	buildMaxHeap(arr, arrLen)
+/* 堆排序 */
 
-	// 交换顶尾元素、剩余元素构建大顶堆
+// Asc：升序
+func HeapSortAsc(arr []int) []int {
+	arrLen := len(arr)
+	sortBool := true
+	buildHeap(arr, arrLen, sortBool)
+
 	for i := arrLen - 1; i >= 0; i-- {
-		swap(arr, 0, i)
-		arrLen -= 1
-		heapify(arr, i, arrLen)
+		swap(arr, i, 0)
+		arrLen--
+		refactorHeap(arr, 0, arrLen, sortBool)
 	}
 	return arr
 }
 
-func buildMaxHeap(arr []int, arrLen int) {
+// Desc：降序
+func HeapSortDesc(arr []int) []int {
+	arrLen := len(arr)
+	sortBool := false
+	buildHeap(arr, arrLen, sortBool)
+
+	for i := arrLen - 1; i >= 0; i-- {
+		swap(arr, i, 0)
+		arrLen--
+		refactorHeap(arr, 0, arrLen, sortBool)
+	}
+	return arr
+}
+
+func buildHeap(arr []int, arrLen int, sortBool bool) {
 	for i := arrLen / 2; i >= 0; i-- {
-		heapify(arr, i, arrLen)
+		refactorHeap(arr, i, arrLen, sortBool)
 	}
 }
 
-func heapify(arr []int, i, arrLen int) {
-	left := 2*i + 1                                // 左孩子
-	right := 2*i + 2                               // 右孩子
-	largest := i                                   // 父节点
-	if left < arrLen && arr[left] > arr[largest] { // 左孩子>父节点
-		largest = left
+func refactorHeap(arr []int, i, arrLen int, sortBool bool) {
+	left := 2*i + 1
+	right := 2*i + 2
+	mid := i
+	if sortBool {
+		if left < arrLen && arr[left] > arr[mid] {
+			mid = left
+		}
+		if right < arrLen && arr[right] > arr[mid] {
+			mid = right
+		}
 	}
-	if right < arrLen && arr[right] > arr[largest] { // 右孩子>父节点
-		largest = right
+
+	if !sortBool {
+		if left < arrLen && arr[left] < arr[mid] {
+			mid = left
+		}
+		if right < arrLen && arr[right] < arr[mid] {
+			mid = right
+		}
 	}
-	if largest != i {
-		swap(arr, i, largest)
-		heapify(arr, largest, arrLen)
+
+	if mid != i {
+		swap(arr, mid, i)
+		refactorHeap(arr, mid, arrLen, sortBool)
 	}
 }
