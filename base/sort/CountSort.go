@@ -36,26 +36,6 @@ func CountSortDesc(arr []int) []int {
 	return arr
 }
 
-func getMaxValue(arr []int) int {
-	maxValue := 0
-	for i := 0; i < len(arr); i++ {
-		if arr[i] > maxValue {
-			maxValue = arr[i]
-		}
-	}
-	return maxValue
-}
-
-func getMinValue(arr []int) int {
-	minValue := 0
-	for i := 0; i < len(arr); i++ {
-		if arr[i] < minValue {
-			minValue = arr[i]
-		}
-	}
-	return minValue
-}
-
 func getCountArr(arr []int) ([]int, int) {
 	countIndex := 0
 	maxValue := getMaxValue(arr)

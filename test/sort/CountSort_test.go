@@ -8,7 +8,7 @@ import (
 )
 
 func TestCountSortAsc(t *testing.T) {
-	arr := []int{1, 3, 2, 1, 0}
+	arr := []int{1, -3, -2, 1, 0}
 	arr = sort.CountSortAsc(arr)
 	fmt.Println("res", arr)
 }
