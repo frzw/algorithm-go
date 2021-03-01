@@ -1,7 +1,5 @@
 package sort
 
-import "fmt"
-
 /* 快速排序 */
 
 // Asc：升序
@@ -31,7 +29,6 @@ func partition(arr []int, left, right int, sortBool bool) int {
 		if sortBool && arr[i] < arr[piovt] {
 			swap(arr, i, index)
 			index++
-			fmt.Println(index, "-", arr)
 		}
 		if !sortBool && arr[i] > arr[piovt] {
 			swap(arr, i, index)
